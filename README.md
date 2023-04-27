@@ -1,4 +1,4 @@
-# INFO3180 VueJS and Flask Starter
+#VueJS / Flask Instagram Clone
 
 This template should help get you started developing with Vue 3 on the frontend and Flask as an API on the backend.
 
