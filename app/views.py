@@ -70,7 +70,7 @@ def logout():
 ########################## APPLICATION FUNCTIONALITY #############################################################
 ########################## APPLICATION FUNCTIONALITY #############################################################
 @app.route('/api/v1/users/<int:user_id>/posts', methods=['POST'])
-@login_required()
+# @login_required()
 def add_post(user_id):
     #Current_user is defined in the imports. Should just be the currently logged in user.
     if current_user != user_id:
@@ -92,7 +92,7 @@ def add_post(user_id):
     return jsonify({'message': 'Post created successfully.'})
 
 
-@api.route('/api/v1/users/<int:user_id>/posts', methods=['GET'])
+@app.route('/api/v1/users/<int:user_id>/posts', methods=['GET'])
 @login_required
 def get_user_posts(user_id):
     user = User.query.filter_by(id=user_id).first()
