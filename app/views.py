@@ -5,6 +5,7 @@ from flask import render_template, request, jsonify, send_file, redirect, url_fo
 from flask_login import login_user, logout_user, current_user, login_required
 from werkzeug.security import check_password_hash, generate_password_hash
 
+from flask_wtf.csrf import generate_csrf
 
 ###
 # Routing for your application.
@@ -14,6 +15,10 @@ from werkzeug.security import check_password_hash, generate_password_hash
 def index():
     return jsonify(message="This is the beginning of our API")
 
+#CSRF Token Generator
+@app.route('/api/v1/csrf-token', methods=['GET'])
+def get_csrf():
+    return jsonify({'csrf_token': generate_csrf()})
 
 ########################## LOGIN MANAGEMENT #############################################################
 ########################## LOGIN MANAGEMENT #############################################################
@@ -73,12 +78,16 @@ def logout():
 # @login_required()
 def add_post(user_id):
     #Current_user is defined in the imports. Should just be the currently logged in user.
-    if current_user != user_id:
+    print(current_user.id)
+
+    if current_user.id != user_id:
         return jsonify({'message': 'Unauthorized access.'})
+    
     data = request.get_json()
+
     caption = data.get('caption')
     photo = data.get('photo')
-    created_on = data.get('created_on')
+    created_on = datetime.datetime.now()
 
     post = Post(
         caption=caption, 
@@ -99,11 +108,23 @@ def get_user_posts(user_id):
     if not user:
         return jsonify({'error': 'User not found'})
     
-    if current_user != user:
+    if current_user.id != user_id:
         return jsonify({'error': 'Unauthorized access'})
     
     posts = Post.query.filter_by(user_id=user_id).all()
-    return jsonify({'posts': [post.to_dict() for post in posts]})
+
+    posts2Json = [] #ID, caption, photo, user_id, created_on
+
+    for post in posts:
+        posts2Json.append({
+            'id': post.id, 
+            'caption' : post.caption,
+            'photo': post.photo,
+            'user_id' : post.user_id,
+            'created_on' : post.created_on
+        })
+
+    return jsonify({'posts': posts2Json})
 
 
 @app.route('/api/v1/users/<int:user_id>/follow', methods=['POST'])
@@ -133,7 +154,7 @@ def get_all_posts():
             'caption': post.caption,
             'photo': post.photo,
             'user_id': post.user_id,
-            'created_on': post.created_on.strftime('%Y-%m-%d %H:%M:%S') #DateTime YMD : HMS format. Can fix up in front end, probably.
+            'created_on': post.created_on #DateTime YMD : HMS format. Can fix up in front end, probably.
         })
     return jsonify(post_list)
 
@@ -211,4 +232,4 @@ def page_not_found(error):
 # Basically, don't touch.
 @login_manager.user_loader
 def load_user(id):
-    return db.session.execute(db.select(UserProfile).filter_by(id=id)).scalar()
+    return db.session.execute(db.select(User).filter_by(id=id)).scalar()
