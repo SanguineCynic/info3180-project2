@@ -42,25 +42,38 @@
   <script lang="ts">
 import { defineComponent } from 'vue';
 
-  export default {
-    data() {
-      return {
-        username: '',
-        password: '',
-        firstname: '',
-        lastname: '',
-        email: '',
-        location: '',
-        biography: '',
-        photo: null
-      };
-    },
-    methods: {
-      handlePhotoUpload(event) {
-        this.photo = event.target.files[0];
-      }
-    }
-  }
+export const Register =  defineComponent({
+  name: 'Register',
+  data() {
+    return {
+      imageSrc: 'https://via.placeholder.com/350x550',
+    };
+  },
+});
+
+export default Register;
+
+
+
+//   export default {
+//     data() {
+//       return {
+//         username: '',
+//         password: '',
+//         firstname: '',
+//         lastname: '',
+//         email: '',
+//         location: '',
+//         biography: '',
+//         photo: null
+//       };
+//     },
+//     methods: {
+//       handlePhotoUpload(event) {
+//         this.photo = event.target.files[0];
+//       }
+//     }
+//   }
   </script>
   
   <style>
