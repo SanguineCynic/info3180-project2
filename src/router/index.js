@@ -3,10 +3,10 @@ import HomeView from '../views/HomeView.vue'
 import HomePage from '../views/HomeView.vue';
 import RegistrationFormView from '@/views/RegistrationFormView.vue';
 import ExploreView from '../views/ExploreView.vue';
-// import LoginView from '../views/LoginView.vue';
+import LoginView from '../views/LoginView.vue';
 // import LogoutView from '../views/LogoutView.vue';
 // import UserProfileView from '../views/UserProfileView.vue';
-// import NewPostView from '../views/NewPostView.vue';
+import NewPostView from '../views/NewPostView.vue';
 
 
 const router = createRouter({
@@ -30,11 +30,11 @@ const router = createRouter({
       name: 'register',
       component: RegistrationFormView
     },
-    // {
-    //     path: '/login',
-    //     name: 'login',
-    //     component: LoginView
-    // },
+    {
+      path: '/login',
+      name: 'login',
+      component: LoginView
+    },
     // {
     //     path: '/logout',
     //     name: 'logout',
@@ -50,11 +50,11 @@ const router = createRouter({
     //     name: 'userProfile',
     //     component: UserProfileView
     // },
-    // {
-    //     path: '/posts/new',
-    //     name: 'newPost',
-    //     component: NewPostView
-    // }
+    {
+      path: '/posts/new',
+      name: 'newPost',
+      component: NewPostView
+    }
   ]
 })
 
