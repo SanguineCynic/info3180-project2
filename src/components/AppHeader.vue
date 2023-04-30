@@ -20,7 +20,13 @@
               <RouterLink to="/" class="nav-link active">Home</RouterLink>
             </li>
             <li class="nav-item">
-              <RouterLink class="nav-link" to="/about">About</RouterLink>
+              <RouterLink class="nav-link" to="/explore">Explore</RouterLink>
+            </li>
+            <li class="nav-item">
+              <RouterLink class="nav-link" to="/about">My Profile</RouterLink>
+            </li>
+            <li class="nav-item">
+              <RouterLink class="nav-link" to="/about">Logout</RouterLink>
             </li>
           </ul>
         </div>
