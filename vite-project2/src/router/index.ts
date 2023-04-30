@@ -1,6 +1,13 @@
 import {createRouter, createWebHistory} from 'vue-router'
 import {HomePage} from '../views/Home.vue';
 import {Register} from '../views/Register.vue';
+import {Explore} from '../views/Explore.vue';
+// import {Login} from '../views/Explore.vue';
+// import {Logout} from '../views/Explore.vue';
+// import {UserProfile} from '../views/Explore.vue';
+// import {NewPost} from '../views/Explore.vue';
+
+
 
 
 export const routes = [
@@ -8,43 +15,36 @@ export const routes = [
         path: '/',
         name: 'home',
         component: HomePage
-        // component: () => import('@views/Home.vue')
     },
     {
         path: '/register',
         name: 'register',
         component: Register
-        // component: () => import('@/views/Register.vue')
     },
     // {
     //     path: '/login',
     //     name: 'login',
-    //     component: () => import('@/views/Login.vue')
+    //     component: Login
     // },
     // {
     //     path: '/logout',
     //     name: 'logout',
-    //     component: () => import('@/views/Logout.vue')
+    //     component: Logout
     // },
-    // {
-    //     path: '/explore',
-    //     name: 'explore',
-    //     component: () => import('@/views/Explore.vue')
-    // },
+    {
+        path: '/explore',
+        name: 'explore',
+        component: Explore
+    },
     // {
     //     path: '/users/:userId',
     //     name: 'userProfile',
-    //     component: () => import('@/views/UserProfile.vue')
+    //     component: UserProfile
     // },
     // {
     //     path: '/posts/new',
     //     name: 'newPost',
-    //     component: () => import('@/views/NewPost.vue')
-    // },
-    // {
-    //     path: '/submit',
-    //     name: 'submitCode',
-    //     component: () => import('@/views/SubmitCode.vue')
+    //     component: NewPost
     // }
 ];
 
