@@ -1,34 +1,45 @@
+<script lang="ts">
+export default {
+  name: 'Register',
+  data() {
+    return {
+      imageSrc: 'https://via.placeholder.com/350x550',
+    };
+  }
+}
+</script>
+
 <template>
     <div class="registration">
       <h1>Register</h1>
       <form>
-        <div class="form-group">
+        <div class="form-group" >
           <label for="username">Username</label>
-          <input id="username" type="text" v-model="username" required>
+          <input id="username" type="text"  required>
         </div>
         <div class="form-group">
           <label for="password">Password</label>
-          <input id="password" type="password" v-model="password" required>
+          <input id="password" type="password" required>
         </div>
         <div class="form-group">
           <label for="firstname">First Name</label>
-          <input id="firstname" type="text" v-model="firstname" required>
+          <input id="firstname" type="text" required>
         </div>
         <div class="form-group">
           <label for="lastname">Last Name</label>
-          <input id="lastname" type="text" v-model="lastname" required>
+          <input id="lastname" type="text" required>
         </div>
         <div class="form-group">
           <label for="email">Email</label>
-          <input id="email" type="email" v-model="email" required>
+          <input id="email" type="email" required>
         </div>
         <div class="form-group">
           <label for="location">Location</label>
-          <input id="location" type="text" v-model="location" required>
+          <input id="location" type="text" required>
         </div>
         <div class="form-group">
           <label for="biography">Biography</label>
-          <textarea id="biography" v-model="biography"></textarea>
+          <textarea id="biography"></textarea>
         </div>
         <div class="form-group">
           <label for="photo">Photo</label>
@@ -39,42 +50,6 @@
     </div>
   </template>
   
-  <script lang="ts">
-import { defineComponent } from 'vue';
-
-export const Register =  defineComponent({
-  name: 'Register',
-  data() {
-    return {
-      imageSrc: 'https://via.placeholder.com/350x550',
-    };
-  },
-});
-
-export default Register;
-
-
-
-//   export default {
-//     data() {
-//       return {
-//         username: '',
-//         password: '',
-//         firstname: '',
-//         lastname: '',
-//         email: '',
-//         location: '',
-//         biography: '',
-//         photo: null
-//       };
-//     },
-//     methods: {
-//       handlePhotoUpload(event) {
-//         this.photo = event.target.files[0];
-//       }
-//     }
-//   }
-  </script>
   
   <style>
   .registration {
