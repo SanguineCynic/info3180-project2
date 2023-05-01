@@ -31,7 +31,6 @@
     name: 'HomePage',
     data() {
       return {
-        // imageSrc: 'https://via.placeholder.com/350x550',
         imageSrc: 'https://ysm-res.cloudinary.com/image/upload/c_fill,f_auto,q_auto:eco,w_525/v1/websites4/live-prod/myysm/communications-technology/photography-and-video/photo/iStock-178420433_312652_56070_v2.jpg',
       };
     },
