@@ -3,7 +3,6 @@ export default {
   name: 'New Post',
   data() {
     return {
-      imageSrc: 'https://via.placeholder.com/350x550',
     };
   }
 }
